@@ -12,6 +12,8 @@
 		71B575B61E1DAF800093BF9B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B575B41E1DAF800093BF9B /* MainMenu.xib */; };
 		71B575C11E1DAF800093BF9B /* Menubar2FATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B575C01E1DAF800093BF9B /* Menubar2FATests.swift */; };
 		71B575CC1E1DAF800093BF9B /* Menubar2FAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B575CB1E1DAF800093BF9B /* Menubar2FAUITests.swift */; };
+		71B575FA1E1DD9990093BF9B /* totp.js in Resources */ = {isa = PBXBuildFile; fileRef = 71B575F91E1DD9990093BF9B /* totp.js */; };
+		71B575FC1E1DF1360093BF9B /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B575FB1E1DF1360093BF9B /* SwiftyTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,9 @@
 		71B575C71E1DAF800093BF9B /* Menubar2FAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Menubar2FAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B575CB1E1DAF800093BF9B /* Menubar2FAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menubar2FAUITests.swift; sourceTree = "<group>"; };
 		71B575CD1E1DAF800093BF9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71B575DA1E1DBCAA0093BF9B /* OneTimePassword.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneTimePassword.framework; path = Carthage/Build/iOS/OneTimePassword.framework; sourceTree = "<group>"; };
+		71B575F91E1DD9990093BF9B /* totp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = totp.js; sourceTree = "<group>"; };
+		71B575FB1E1DF1360093BF9B /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +82,7 @@
 				71B575BF1E1DAF800093BF9B /* Menubar2FATests */,
 				71B575CA1E1DAF800093BF9B /* Menubar2FAUITests */,
 				71B575AE1E1DAF800093BF9B /* Products */,
+				71B575D91E1DBCA90093BF9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +103,8 @@
 				71B575B21E1DAF800093BF9B /* Assets.xcassets */,
 				71B575B41E1DAF800093BF9B /* MainMenu.xib */,
 				71B575B71E1DAF800093BF9B /* Info.plist */,
+				71B575F91E1DD9990093BF9B /* totp.js */,
+				71B575FB1E1DF1360093BF9B /* SwiftyTimer.swift */,
 			);
 			path = Menubar2FA;
 			sourceTree = "<group>";
@@ -117,6 +125,14 @@
 				71B575CD1E1DAF800093BF9B /* Info.plist */,
 			);
 			path = Menubar2FAUITests;
+			sourceTree = "<group>";
+		};
+		71B575D91E1DBCA90093BF9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71B575DA1E1DBCAA0093BF9B /* OneTimePassword.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +199,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = "LL International";
+				ORGANIZATIONNAME = "Diamond Inc.";
 				TargetAttributes = {
 					71B575AC1E1DAF800093BF9B = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = TN9XLZ5C95;
+						DevelopmentTeam = LF236QZD6B;
 						ProvisioningStyle = Automatic;
 					};
 					71B575BB1E1DAF800093BF9B = {
@@ -229,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B575FA1E1DD9990093BF9B /* totp.js in Resources */,
 				71B575B31E1DAF800093BF9B /* Assets.xcassets in Resources */,
 				71B575B61E1DAF800093BF9B /* MainMenu.xib in Resources */,
 			);
@@ -256,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B575B11E1DAF800093BF9B /* AppDelegate.swift in Sources */,
+				71B575FC1E1DF1360093BF9B /* SwiftyTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,11 +414,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = TN9XLZ5C95;
+				DEVELOPMENT_TEAM = LF236QZD6B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Menubar2FA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = international.ll.Menubar2FA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diamond.Menubar2FA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -410,11 +433,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = TN9XLZ5C95;
+				DEVELOPMENT_TEAM = LF236QZD6B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Menubar2FA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = international.ll.Menubar2FA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diamond.Menubar2FA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
